@@ -1,0 +1,49 @@
+Ecco il tuo prompt completo, aggiornato e rifinito con i nuovi requisiti tecnici (Tailwind CSS, sezione soluzione a comparsa e blocco di codice Python con syntax highlighting).
+
+Questo prompt è ora pronto per essere utilizzato per generare l'intero progetto in modo preciso e strutturato:
+
+---
+
+### Il Prompt Completo e Aggiornato
+
+> Agisci come un Web Developer esperto in UI/UX per interfacce orientate ai programmatori e studenti di informatica. Voglio creare un sito web single-page, modulare, leggero e performante, per ospitare 10 esercizi di Python destinati a un'esercitazione universitaria. Il progetto sarà strutturato per essere facilmente deployato su Vercel.
+> **Stack Tecnologico Richiesto:**
+> * HTML5 e TypeScript (Vanilla, senza framework pesanti come React o Vue).
+> * Vite come bundler e server di sviluppo locale (ottimizzato per Vercel).
+> * Architettura basata su Web Components nativi per garantire la modularità dell'interfaccia.
+> * Tailwind CSS per lo styling e la gestione del layout.
+> * Three.js per la gestione del background interattivo.
+> * Ottimizzato per il deploy su Vercel.
+> 
+> **Design, Stile ed Estetica:**
+> * Tema scuro (Dark Mode) elegante, minimale, in stile "ambiente di sviluppo moderno" o terminale di programmazione avanzato.
+> * Layout pulito, blocchi ben definiti e nessuna animazione UI superflua che possa rallentare la navigazione.
+> * Sfondo interattivo (Three.js): un sistema di particelle composto da caratteri ASCII fluttuanti. Al passaggio del mouse, i caratteri vicini al cursore devono reagire muovendosi leggermente e illuminandosi con un colore d'accento acceso (es. verde neon, ciano o arancione hi-tech), per poi tornare gradualmente allo stato iniziale.
+> 
+> 
+> **Architettura e Componenti della Pagina:**
+> 1. `HeaderComponent`: Mostra il titolo dell' esercitazione, la data corrente e un'introduzione con l'elenco degli argomenti trattati: set, dizionari, classi, alberi
+> 2. `NavComponent` (Legenda): Una barra laterale (sidebar) o un menu sticky per permettere la navigazione rapida (tramite ancore) ai singoli esercizi.
+> 3. `ExerciseCard` (Il componente per il singolo esercizio):
+> * Deve mostrare chiaramente il numero dell'esercizio, il titolo e il testo della consegna.
+> * Deve includere un pulsante "Mostra Soluzione" (o un toggle).
+> * Al click sul pulsante, deve rivelarsi (tramite un effetto di comparsa immediato e pulito) un blocco di codice che mostra la **Soluzione** dell'esercizio.
+> * Questo blocco deve presentare il codice Python formattato all'interno di una casella predisposta per il *syntax highlighting* (puoi usare un approccio nativo con tag `<pre><code>` formattati ad hoc con Tailwind o suggerire una libreria leggerissima come Prism.js/Highlight.js integrata nel componente).
+
+Sentiti libero di generare esercizi che coprano gli argomenti indicati: set, dizionari, classi, alberi. Almeno 20 esercizi su set, dizionari, classi, alberi.
+
+> 
+> 
+> 
+> 
+> **Configurazione Centralizzata dei Dati (`config.ts`):**
+> * Tutto il contenuto e la struttura del sito devono essere guidati dinamicamente da un singolo file `config.ts`.
+> * Il file deve esportare un oggetto fortemente tipizzato contenente:
+> * Metadati generali (Titolo, data, descrizione dell'esercitazione).
+> * Variabili di configurazione estetica (colori principali per sincronizzare la UI di Tailwind e lo sfondo di Three.js).
+> * Un array di oggetti per i 10 esercizi. Ogni oggetto deve avere la struttura: `id`, `titolo`, `consegna` (testo o HTML minimale) e `soluzione` (una stringa contenente lo snippet di codice Python).
+> 
+> 
+> 
+> 
+> Forniscimi la struttura completa delle cartelle del progetto, la configurazione di Vite e Tailwind, il codice completo per `config.ts`, l'implementazione dello sfondo interattivo in Three.js e i file TypeScript per i Web Components nativi (incluso il meccanismo di reveal/syntax-highlighting della soluzione).

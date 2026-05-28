@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Python Programming Lab</title>
+  </head>
+  <body class="antialiased relative">
+    <!-- Three.js Canvas Container -->
+    <div id="bg-canvas" class="fixed inset-0 -z-10 pointer-events-none"></div>
+
+    <!-- Navigation Drawer & Overlay -->
+    <nav-component></nav-component>
+
+    <header-component></header-component>
+
+    <main class="container mx-auto px-6 pb-24 relative">
+      <div class="flex flex-col gap-12">
+        <!-- Exercises List (Full Width, Centered) -->
+        <div class="w-full max-w-4xl mx-auto">
+          <div id="exercises-container"></div>
+        </div>
+      </div>
+    </main>
+
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
