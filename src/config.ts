@@ -26,9 +26,9 @@ export interface AppConfig {
 export const config: AppConfig = {
   metadata: {
     title: "Python Programming Lab",
-    subtitle: "Set, Dizionari, Classi ed Alberi",
+    subtitle: "Set, Dizionari, Classi, Alberi e Matrici",
     date: "5 Giugno 2026",
-    description: "Esercizi per lo studio di Python"
+    description: "Esercizi per lo studio di Python (Solo Standard Library)"
   },
   theme: {
     accentColor: "#ffffff", // Pure white to match the bold title exactly
@@ -360,6 +360,48 @@ export const config: AppConfig = {
       title: "Stampa Figli della Radice",
       text: "Un esercizio elementare sui rami dell'albero: restituisci una lista contenente solo i valori del livello immediatamente inferiore alla radice, senza chiamate ricorsive.",
       solution: "def get_root_children(root):\n    if root is None:\n        return []\n        \n    children = []\n    \n    if root.left is not None:\n        children.append(root.left.value)\n        \n    if root.right is not None:\n        children.append(root.right.value)\n        \n    return children",
+      difficulty: "Facile"
+    },
+
+    // MATRICI (5 esercizi)
+    {
+      id: "matrix-1",
+      topic: "Matrici",
+      title: "Perimetro della Matrice",
+      text: "Scrivi una funzione che estragga solo gli elementi sul bordo esterno di una matrice (prima riga, ultima colonna, ultima riga, prima colonna) procedendo in senso orario. Non usare librerie.",
+      solution: "def matrix_perimeter(matrix):\n    if not matrix or not matrix[0]: return []\n    rows, cols = len(matrix), len(matrix[0])\n    perimeter = []\n    \n    for j in range(cols):\n        perimeter.append(matrix[0][j])\n    for i in range(1, rows):\n        perimeter.append(matrix[i][cols - 1])\n    if rows > 1:\n        for j in range(cols - 2, -1, -1):\n            perimeter.append(matrix[rows - 1][j])\n    if cols > 1:\n        for i in range(rows - 2, 0, -1):\n            perimeter.append(matrix[i][0])\n            \n    return perimeter",
+      difficulty: "Medio"
+    },
+    {
+      id: "matrix-2",
+      topic: "Matrici",
+      title: "Ricerca del Punto di Sella",
+      text: "Un 'punto di sella' è un elemento che è contemporaneamente il minimo della sua riga e il massimo della sua colonna. Trova le coordinate (riga, colonna) del primo punto di sella, se esiste, usando solo Python base.",
+      solution: "def saddle_point(matrix):\n    if not matrix: return None\n    rows, cols = len(matrix), len(matrix[0])\n    \n    for i in range(rows):\n        row_min = matrix[i][0]\n        col_index = 0\n        for j in range(1, cols):\n            if matrix[i][j] < row_min:\n                row_min = matrix[i][j]\n                col_index = j\n                \n        is_saddle = True\n        for k in range(rows):\n            if matrix[k][col_index] > row_min:\n                is_saddle = False\n                break\n                \n        if is_saddle:\n            return (i, col_index)\n            \n    return None",
+      difficulty: "Difficile"
+    },
+    {
+      id: "matrix-3",
+      topic: "Matrici",
+      title: "Rotazione a 90 Gradi (Nuova Matrice)",
+      text: "Scrivi una funzione che accetta una matrice e ne restituisce una nuova ruotata di 90 gradi in senso orario. Usa cicli annidati espliciti per costruire le nuove righe, senza usare zip() o altre scorciatoie.",
+      solution: "def rotate_matrix_90(matrix):\n    if not matrix: return []\n    rows, cols = len(matrix), len(matrix[0])\n    \n    rotated = []\n    for j in range(cols):\n        new_row = []\n        for i in range(rows - 1, -1, -1):\n            new_row.append(matrix[i][j])\n        rotated.append(new_row)\n        \n    return rotated",
+      difficulty: "Medio"
+    },
+    {
+      id: "matrix-4",
+      topic: "Matrici",
+      title: "Sotto-matrice 2x2 con Somma Massima",
+      text: "Itera su tutta la matrice per trovare il quadrato 2x2 adiacente i cui 4 elementi producono la somma massima. Restituisci tale somma usando solo cicli e operatori base.",
+      solution: "def max_2x2_submatrix(matrix):\n    if len(matrix) < 2 or len(matrix[0]) < 2:\n        return 0\n        \n    rows, cols = len(matrix), len(matrix[0])\n    max_sum = matrix[0][0] + matrix[0][1] + matrix[1][0] + matrix[1][1]\n    \n    for i in range(rows - 1):\n        for j in range(cols - 1):\n            current_sum = matrix[i][j] + matrix[i][j+1] + matrix[i+1][j] + matrix[i+1][j+1]\n            if current_sum > max_sum:\n                max_sum = current_sum\n                \n    return max_sum",
+      difficulty: "Medio"
+    },
+    {
+      id: "matrix-5",
+      topic: "Matrici",
+      title: "Percorso a Zig-Zag (Serpentina)",
+      text: "Attraversa e restituisci gli elementi della matrice riga per riga, alternando la direzione: da sinistra a destra per le righe pari (indice 0, 2...) e da destra a sinistra per le righe dispari. Nessuna dipendenza esterna.",
+      solution: "def zigzag_traversal(matrix):\n    if not matrix: return []\n    result = []\n    rows, cols = len(matrix), len(matrix[0])\n    \n    for i in range(rows):\n        if i % 2 == 0:\n            for j in range(cols):\n                result.append(matrix[i][j])\n        else:\n            for j in range(cols - 1, -1, -1):\n                result.append(matrix[i][j])\n                \n    return result",
       difficulty: "Facile"
     }
   ]
